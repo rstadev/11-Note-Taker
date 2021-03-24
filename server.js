@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const { get } = require('https');
 
 var PORT = 8080;
 
@@ -12,7 +13,9 @@ function handleRequest(req, res) {
 
   switch (path) {
     case '/':
-      return getHtml(baseFilePath + 'index.html', res)
+      return getHtml(baseFilePath + 'index.html', res);
+    case '/notes':
+      return getHtml(baseFilePath +  'notes.html', res)
   }
 
   res.end(`It Works!! Path Hit: ${path}`);
