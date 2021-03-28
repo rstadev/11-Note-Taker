@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express')
 
 module.exports = function (app) {
-  app.use("/assets", express.static('./public/assets/'));
+  app.use(express.static('public'));
 
   app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
