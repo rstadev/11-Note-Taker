@@ -9,7 +9,7 @@ var server = http.createServer(handleRequest);
 function handleRequest(req, res) {
   var path = req.url;
   let baseFilePath = `${__dirname}/public/`;
-  let filePath;
+  // let filePath;
 
   switch (path) {
     case '/':
@@ -17,8 +17,8 @@ function handleRequest(req, res) {
     case '/notes':
       return getHtml(baseFilePath +  'notes.html', res)
   }
-
-  res.end(`It Works!! Path Hit: ${path}`);
+  // `It Works!! Path Hit: ${path}`
+  res.end();
 };
 
 
