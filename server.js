@@ -40,6 +40,6 @@ require('./routes/htmlroutes.js')(app);
 // }
 
 
-server.listen(PORT, function() {
+app.listen(PORT, function() {
   console.log("Server is listening at http://localhost:" + PORT);
 });
