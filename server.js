@@ -29,7 +29,9 @@ app.use(express.json());
 // };
 
 
+require('./routes/apiroutes.js')(app);
 require('./routes/htmlroutes.js')(app);
+
 
 // function getHtml(filePath, res) {
 //   return fs.readFile(filePath, (err, data) => {
