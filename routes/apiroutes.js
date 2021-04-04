@@ -1,9 +1,10 @@
 const path = require('path');
 const express = require('express')
 const data = require('../db/db.json');
-const { fstat } = require('fs');
+// const { fstat } = require('fs');
+const fs = require('fs')
 
-
+// let fs;
 
 module.exports = function (app) {
   app.get('/api/notes', (req,res) => {
@@ -14,11 +15,13 @@ module.exports = function (app) {
 
   app.post('/api/notes', (req,res) => {
     const input = req.body
-    fs.writeFile('../db/db.json', JSON.stringify(data))
+    fs.writeFile('../db/db.json', JSON.stringify(data), function(err, result){
+      if(err) console.log('error', err);
+    })
     data.push(req.body);
     res.status(200);
   });
-  app.get('api/notes/:id', function(req,res) {
-    res.json(data[req.params.id])
-  });
+//   app.get('api/notes/:id', function(req,res) {
+//     res.json(data[req.params.id])
+//   });
 };
