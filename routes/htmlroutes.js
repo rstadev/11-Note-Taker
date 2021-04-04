@@ -4,7 +4,9 @@ const express = require('express')
 module.exports = function (app) {
   app.use(express.static('public'));
 
-  
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/notes.html'))
+  })
   app.get('/notes', (req,res) => {
     // res.send(console.log(req.body))
     res.sendFile(path.join(__dirname, '../public/notes.html'))
